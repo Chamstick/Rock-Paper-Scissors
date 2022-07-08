@@ -35,7 +35,7 @@ while gameRunning: # All this does is make it so the code can repeat, enabling o
         if playerMove.lower() == "rock":
             if gameMove == "paper":
                 playerWin = "lose"
-            elif gameMove == "Scissors":
+            elif gameMove == "scissors":
                 playerWin = "win"
 
         # Runs if the player plays paper.
