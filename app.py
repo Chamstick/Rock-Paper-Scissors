@@ -26,7 +26,7 @@ while gameRunning:
         playerMove = input()
 
     # Checks if the game is a draw.
-    if playerMove.casefold() == gameMove:
+    if str(playerMove.casefold()) == str(gameMove):
         playerWin = "Draw"
         while playerResponse.casefold() not in choiceTable:
             print("Invalid response.")
