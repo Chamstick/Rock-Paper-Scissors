@@ -55,7 +55,7 @@ while gameRunning: # All this does is make it so the code can repeat, enabling o
     # Runs if the player wins.
     if playerWin == "win":
         gameWin += 1
-        print("You played: " + playerMove.casefold())
+        print("You played: " + playerMove.lower())
         time.sleep(1)
         print("Game played: " + gameMove)
         time.sleep(1)
@@ -68,7 +68,7 @@ while gameRunning: # All this does is make it so the code can repeat, enabling o
     # Runs if the player loses.
     elif playerWin == "lose":
         gameLose += 1
-        print("You played: " + playerMove.casefold())
+        print("You played: " + playerMove.lower())
         time.sleep(1)
         print("Game played: " + gameMove)
         time.sleep(1)
@@ -81,7 +81,7 @@ while gameRunning: # All this does is make it so the code can repeat, enabling o
     # Runs if the game ends in a draw.
     elif playerWin == "draw":
         gameDraw += 1
-        print("You played: " + playerMove.casefold())
+        print("You played: " + playerMove.lower())
         time.sleep(1)
         print("Game played: " + gameMove)
         time.sleep(1)
