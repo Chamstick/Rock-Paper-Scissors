@@ -2,13 +2,13 @@
 import random
 import time
 
-
 moveTable = ["rock", "paper", "scissors"]
 choiceTable = ["yes", "no"]
 
 gameRunning = True
+gameMove = None
 
-playerMove = "rock"
+playerMove = None
 playerWin = "lose"
 playerResponse = "yes"
 
@@ -16,45 +16,44 @@ gameWin = 0
 gameLose = 0
 gameDraw = 0
 
-while gameRunning:
+
+while gameRunning: # All this does is make it so the code can repeat, enabling one to play many games quickly.
+
     gameMove = random.choice(moveTable)
     print("What is your move?")
     playerMove = input()
-
     while playerMove.casefold() not in moveTable:
         print("Sorry, that's not a valid move. Try again.")
         playerMove = input()
 
     # Checks if the game is a draw.
-    if str(playerMove.casefold()) == str(gameMove):
-        playerWin = "Draw"
-        while playerResponse.casefold() not in choiceTable:
-            print("Invalid response.")
-            playerResponse = input()
-    elif playerMove.casefold() != gameMove:
+    if playerMove.lower() == gameMove:
+        playerWin = "draw"
+    elif playerMove.lower() != gameMove:
 
         # Runs if the player plays rock.
-        if playerMove.casefold() == "Rock":
-            if gameMove == "Paper":
-                playerWin = "Lose"
+        if playerMove.lower() == "rock":
+            if gameMove == "paper":
+                playerWin = "lose"
             elif gameMove == "Scissors":
-                playerWin = "Win"
+                playerWin = "win"
 
         # Runs if the player plays paper.
-        elif playerMove.casefold() == "Paper":
-            if gameMove == "Scissors":
-                playerWin = "Lose"
-            elif gameMove == "Rock":
-                playerWin = "Win"
+        elif playerMove.lower() == "paper":
+            if gameMove == "scissors":
+                playerWin = "lose"
+            elif gameMove == "rock":
+                playerWin = "win"
 
         # Runs if the player plays scissors.
-        elif playerMove.casefold() == "Scissors":
-            if gameMove == "Rock":
-                playerWin = "Lose"
-            elif gameMove == "Paper":
-                playerWin = "Win"
+        elif playerMove.lower() == "scissors":
+            if gameMove == "rock":
+                playerWin = "lose"
+            elif gameMove == "paper":
+                playerWin = "win"
 
-    if playerWin == "Win":
+    # Runs if the player wins.
+    if playerWin == "win":
         gameWin += 1
         print("You played: " + playerMove.casefold())
         time.sleep(1)
@@ -66,7 +65,8 @@ while gameRunning:
         print("D: " + str(gameDraw))
         print("Play again?")
 
-    elif playerWin == "Lose":
+    # Runs if the player loses.
+    elif playerWin == "lose":
         gameLose += 1
         print("You played: " + playerMove.casefold())
         time.sleep(1)
@@ -78,7 +78,8 @@ while gameRunning:
         print("D: " + str(gameDraw))
         print("Play again?")
 
-    elif playerWin == "Draw":
+    # Runs if the game ends in a draw.
+    elif playerWin == "draw":
         gameDraw += 1
         print("You played: " + playerMove.casefold())
         time.sleep(1)
@@ -96,7 +97,7 @@ while gameRunning:
         print("Invalid response.")
         input()
 
-    if playerResponse.casefold() == "yes":
+    if playerResponse.lower() == "yes":
         continue
-    elif playerResponse.casefold() == "no":
+    elif playerResponse.lower() == "no":
         break
