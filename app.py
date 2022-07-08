@@ -95,7 +95,7 @@ while gameRunning: # All this does is make it so the code can repeat, enabling o
     playerResponse = input()
     while playerResponse.casefold() not in choiceTable:
         print("Invalid response.")
-        input()
+        playerResponse = input()
 
     if playerResponse.lower() == "yes":
         continue
