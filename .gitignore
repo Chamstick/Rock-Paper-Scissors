@@ -1,5 +1,5 @@
 # Manually added
-.gitignore
+*.gitignore
 /.idea/
 
 # Byte-compiled / optimized / DLL files
